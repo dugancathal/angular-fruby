@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-md-12" id="messages">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a data-toggle='collapse' href="#messages-body" parent="#messages" ng-click='seeMessages()'>
+            Messages
+            <span ng-show="newMessages">(New)</span>
+            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+          </a>
+        </h3>
+      </div>
+      <div class="panel-collapse collapse" id="messages-body">
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>From</th>
+                <th>Subject</th>
+                <th>Type</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat='message in messages'>
+                <td>{{message.from}}</td>
+                <td>Not Important</td>
+                <td>It's all the same</td>
+                <td>{{message.body}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class='row'>
+  <div class='col-md-6'>
+    <h3>Send yourself a message</h3>
+    <form class='form'>
+      <div class='form-group'>
+        <input ng-model="messageFrom" type="text" placeholder='From' class='form-control'/>
+      </div>
+      <div class='form-group'>
+        <input ng-model="messageBody" type="text" placeholder='Body' class='form-control'/>
+      </div>
+
+      <div class='form-actions'>
+        <button type='button' class='btn btn-primary' ng-click='sendMessage()'>Send</button>
+      </div>
+    </form>
+  </div>
+  <div class='col-md-6'>
+    <h4>And that'll look like</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>From</th>
+          <th>Subject</th>
+          <th>Type</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td ng-bind='messageFrom'></td>
+          <td>Not Important</td>
+          <td>It's all the same</td>
+          <td ng-bind='messageBody'></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
